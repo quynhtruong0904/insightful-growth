@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ESG & Sustainability Design System for SME Supply Chain Platform
-   Color Philosophy: Forest green, teal, earth tones for ethical, calm, responsible aesthetics
+/* ESG & Sustainability Design System with AI Intelligence Layer
+   Color Philosophy: Forest green, teal, earth tones + AI accent highlights
    All colors MUST be HSL.
 */
 
@@ -51,6 +51,11 @@
     /* Info - Soft blue */
     --info: 200 50% 50%;
     --info-foreground: 0 0% 100%;
+
+    /* AI Intelligence - Soft blue-green glow */
+    --ai: 185 55% 50%;
+    --ai-foreground: 0 0% 100%;
+    --ai-glow: 185 60% 65%;
 
     /* Borders - Warm neutral */
     --border: 35 20% 88%;
@@ -112,6 +117,10 @@
     --info: 200 50% 55%;
     --info-foreground: 0 0% 100%;
 
+    --ai: 185 60% 55%;
+    --ai-foreground: 0 0% 100%;
+    --ai-glow: 185 65% 60%;
+
     --border: 160 15% 20%;
     --input: 160 15% 20%;
     --ring: 155 50% 50%;
@@ -144,8 +153,53 @@
   }
 }
 
-/* Custom scrollbar for ESG theme */
+/* AI Intelligence Layer Styles */
 @layer utilities {
+  .ai-glow {
+    box-shadow: 0 0 20px -5px hsl(var(--ai) / 0.3),
+                0 0 40px -10px hsl(var(--ai) / 0.2);
+  }
+  
+  .ai-glow-subtle {
+    box-shadow: 0 0 15px -5px hsl(var(--ai) / 0.15),
+                0 0 30px -10px hsl(var(--ai) / 0.1);
+  }
+
+  .ai-border-glow {
+    border-color: hsl(var(--ai) / 0.4);
+    box-shadow: 0 0 0 1px hsl(var(--ai) / 0.1),
+                0 0 15px -5px hsl(var(--ai) / 0.2);
+  }
+
+  .ai-thinking {
+    animation: ai-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .ai-analyzing {
+    animation: ai-analyze 3s ease-in-out infinite;
+  }
+
+  @keyframes ai-pulse {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 15px -5px hsl(var(--ai) / 0.3);
+    }
+    50% {
+      opacity: 0.85;
+      box-shadow: 0 0 25px -5px hsl(var(--ai) / 0.5);
+    }
+  }
+
+  @keyframes ai-analyze {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Scrollbar styles */
   .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--border)) transparent;
@@ -163,5 +217,18 @@
   .scrollbar-thin::-webkit-scrollbar-thumb {
     background-color: hsl(var(--border));
     border-radius: 3px;
+  }
+
+  /* Confidence level indicators */
+  .confidence-high {
+    --confidence-color: var(--success);
+  }
+  
+  .confidence-medium {
+    --confidence-color: var(--warning);
+  }
+  
+  .confidence-low {
+    --confidence-color: var(--muted-foreground);
   }
 }
