@@ -9,6 +9,7 @@ import Customers from "./pages/Customers";
 import Forecasting from "./pages/Forecasting";
 import Promotions from "./pages/Promotions";
 import CustomerCare from "./pages/CustomerCare";
+import Sustainability from "./pages/Sustainability";
 import DataImport from "./pages/DataImport";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/forecasting" element={<Layout><Forecasting /></Layout>} />
           <Route path="/promotions" element={<Layout><Promotions /></Layout>} />
           <Route path="/customer-care" element={<Layout><CustomerCare /></Layout>} />
+          <Route path="/sustainability" element={<Layout><Sustainability /></Layout>} />
           <Route path="/data-import" element={<Layout><DataImport /></Layout>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
